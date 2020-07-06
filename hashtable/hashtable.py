@@ -13,6 +13,13 @@ class HashTableEntry:
 MIN_CAPACITY = 8
 
 
+def djb2(key):
+    hash = 5381
+    for c in key:
+        hash = (hash * 33) + ord(c)
+    return hash
+
+
 class HashTable:
     """
     A hash table that with `capacity` buckets
@@ -22,7 +29,9 @@ class HashTable:
     """
 
     def __init__(self, capacity):
-        # Your code here
+        self.capacity = capacity
+        self.data = [None] * capacity
+        self.load = 0
 
     def get_num_slots(self):
         """

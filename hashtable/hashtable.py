@@ -90,9 +90,11 @@ class HashTable:
         Implement this.
         """
         index = self.hash_index(key)
+
         if self.data[index] == None:
             self.data[index] = HashTableEntry(key, value)
             self.load += 1
+
         else:
             node = self.data[index]
             if node.key == key:
@@ -115,14 +117,18 @@ class HashTable:
         Implement this.
         """
         index = self.hash_index(key)
+
         if self.data[index] == None:
             print("Error: Key not found")
+
         elif self.data[index].key == key:
             self.data[index] = None
             self.load -= 1
+
         elif (self.data[index].key != key) and (self.data[index].next != None):
             prev = self.data[index]
             curr = self.data[index].next
+
             while curr.key != key and curr.next != None:
                 prev, curr = curr, curr.next
             if curr.key == key:
@@ -139,10 +145,13 @@ class HashTable:
         """
         index = self.hash_index(key)
         node = self.data[index]
+
         if node == None:
             return node
+
         while node.key != key and node.next != None:
             node = node.next
+
         if node.key == key:
             return node.value
 
@@ -154,6 +163,7 @@ class HashTable:
         Implement this.
         """
         old_data = self.data
+
         self.data = [None] * new_capacity
         self.capacity = new_capacity
         self.load = 0

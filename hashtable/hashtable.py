@@ -99,6 +99,7 @@ class HashTable:
             node = self.data[index]
             if node.key == key:
                 node.value = value
+
             else:
                 while node.next != None and node.key != key:
                     node = node.next

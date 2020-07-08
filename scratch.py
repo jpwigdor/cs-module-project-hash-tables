@@ -15,6 +15,7 @@ class LinkedList:
         # return the node
 
         cur = self.head
+
         while cur is not None:
             if cur.value == value:
                 return cur
